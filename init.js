@@ -22,7 +22,7 @@ const MSG = 'Slave Proxy test'//String(new Array(6).fill('Z'));
 execc()
 async function execc (){
   try {
-		await fs.copy('../../chat-chain-client/src/contracts/', './contracts/', { overwrite: true })
+		await fs.copy('../chat-chain-client/src/contracts/', './contracts/', { overwrite: true })
 		console.log('success!')
   	} catch (err) {
     	console.error(err)
