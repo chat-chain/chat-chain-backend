@@ -8,7 +8,8 @@
     "dev": "nodemon app.js",
     "test": "node test/test.js",
     "replacetest": "node test/TestContractReplacing.js",
-    "init": "node init.js"
+    "init": "node init.js",
+    "testLand": "node test/TestLandable.js"
   },
   "author": "",
   "license": "ISC",

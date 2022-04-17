@@ -121,7 +121,15 @@ exports.getAccountsRecover = async (req, res, next) => {
         ChoosenCom
       )
       .encodeABI();
-
+    //Test if transaction will fail
+    const gasEstTest = await web3.eth.estimateGas({
+      to: eveeContract._address,
+      from: proxySlaveAccount.address,
+      data: freeSendMessegeData,
+    });
+    //Can comapre to real cosr
+    console.log('general tx estimation  =  ',gasEst );
+    console.log('real estimation        =  ',gasEstTest );
     const gasLimitHex = web3.utils.toHex(maxGasPerTX);
     const txCount = await web3.eth.getTransactionCount(
       proxySlaveAccount.address,
@@ -286,55 +294,6 @@ const GetProxyAdd = async () => {
   let bool = true;
   try {
     while (bool) {
-      await lockSem('ProxySem.lock');
-      porxys = await fs.promises.readFile(
-        'MultiProcProxysIndex.txt',
-        'utf8',
-        function (err, result) {
-          if (err) console.log('error', err);
-        }
-      );
-      porxys = porxys.split(' ');
-      console.log('porxys', porxys);
-      indexes = String(porxys).split(' ');
-      for (i in porxys) {
-        if (porxys[i].split('-').length < 2) break;
-        console.log('trying ', porxys[i]);
-        if (porxys[i].split('-')[1] == 0) {
-          console.log('found', porxys[i].split('-')[0]);
-          proxy = porxys[i].split('-')[0];
-          bool = false;
-          break;
-        }
-      }
-      if (bool) {
-        unlockSem('ProxySem.lock');
-        await new Promise((resolve) => setTimeout(resolve, 10000));
-      }
-    }
-
-    //porxys = await fs.promises.readFile("MultiProcProxysIndex.txt", 'utf8', function(err, result) {
-    //      if(err) console.log('error', err);
-    //      });
-    fs.writeFile('MultiProcProxysIndex.txt', '', function (err, result) {
-      if (err) console.log('error', err);
-    });
-    for (i in porxys) {
-      if (porxys[i].split('-').length < 2) break;
-      if (porxys[i].split('-')[0] != proxy) await AddIndex(porxys[i]);
-      else await AddIndex(proxy + '-' + '1');
-    }
-  } catch (err) {
-    unlockSem('ProxySem.lock');
-    throw err;
-  }
-  unlockSem('ProxySem.lock');
-  return proxy;
-};
-
-const realeaseProxyAdd = async (proxy) => {
-  if (proxy == 0) return;
-  try {
     await lockSem('ProxySem.lock');
     porxys = await fs.promises.readFile(
       'MultiProcProxysIndex.txt',
@@ -344,87 +303,136 @@ const realeaseProxyAdd = async (proxy) => {
       }
     );
     porxys = porxys.split(' ');
-    fs.writeFile('MultiProcProxysIndex.txt', '', function (err, result) {
-      if (err) console.log('error', err);
-    });
+    console.log('porxys', porxys);
+    indexes = String(porxys).split(' ');
     for (i in porxys) {
-      if (porxys[i].split('-')[0] != proxy) await AddIndex(porxys[i]);
-      else await AddIndex(proxy + '-' + '0');
+      if (porxys[i].split('-').length < 2) break;
+      console.log('trying ', porxys[i]);
+      if (porxys[i].split('-')[1] == 0) {
+        console.log('found', porxys[i].split('-')[0]);
+        proxy = porxys[i].split('-')[0];
+        bool = false;
+        break;
+      }
     }
-  } catch (err) {
-    unlockSem('ProxySem.lock');
-    throw err;
+    if (bool) {
+      unlockSem('ProxySem.lock');
+      await new Promise((resolve) => setTimeout(resolve, 10000));
+    }
   }
+
+  //porxys = await fs.promises.readFile("MultiProcProxysIndex.txt", 'utf8', function(err, result) {
+  //      if(err) console.log('error', err);
+  //      });
+  fs.writeFile('MultiProcProxysIndex.txt', '', function (err, result) {
+    if (err) console.log('error', err);
+  });
+  for (i in porxys) {
+    if (porxys[i].split('-').length < 2) break;
+    if (porxys[i].split('-')[0] != proxy) await AddIndex(porxys[i]);
+    else await AddIndex(proxy + '-' + '1');
+  }
+} catch (err) {
   unlockSem('ProxySem.lock');
+  throw err;
+}
+unlockSem('ProxySem.lock');
+return proxy;
+};
+
+const realeaseProxyAdd = async (proxy) => {
+if (proxy == 0) return;
+try {
+  await lockSem('ProxySem.lock');
+  porxys = await fs.promises.readFile(
+    'MultiProcProxysIndex.txt',
+    'utf8',
+    function (err, result) {
+      if (err) console.log('error', err);
+    }
+  );
+  porxys = porxys.split(' ');
+  fs.writeFile('MultiProcProxysIndex.txt', '', function (err, result) {
+    if (err) console.log('error', err);
+  });
+  for (i in porxys) {
+    if (porxys[i].split('-')[0] != proxy) await AddIndex(porxys[i]);
+    else await AddIndex(proxy + '-' + '0');
+  }
+} catch (err) {
+  unlockSem('ProxySem.lock');
+  throw err;
+}
+unlockSem('ProxySem.lock');
 };
 
 const AddIndex = async (stringg) => {
-  await fs.promises.appendFile('MultiProcProxysIndex.txt', stringg + ' ');
+await fs.promises.appendFile('MultiProcProxysIndex.txt', stringg + ' ');
 };
 
 async function setWhiteList(
-  web3,
-  eveeContract,
-  master_proxy,
-  master_proxy_pkey,
-  slave_proxy,
-  MaxFee
+web3,
+eveeContract,
+master_proxy,
+master_proxy_pkey,
+slave_proxy,
+MaxFee
 ) {
-  const isWhiteListed = await eveeContract.methods
-    .inWhiteList(master_proxy.address)
-    .call({ from: slave_proxy.address });
-  console.log('isWhiteListed', isWhiteListed);
-  if (!isWhiteListed) {
-    console.log('adding ot whitelist');
-    const TX = await eveeContract.methods
-      .addToWhiteList(slave_proxy.address)
-      .encodeABI();
-    await sendTXWithPkey(
-      web3,
-      master_proxy,
-      TX,
-      0,
-      eveeContract,
-      master_proxy_pkey,
-      MaxFee
-    );
-  } else console.log('already white listed');
+const isWhiteListed = await eveeContract.methods
+  .inWhiteList(master_proxy.address)
+  .call({ from: slave_proxy.address });
+console.log('isWhiteListed', isWhiteListed);
+if (!isWhiteListed) {
+  console.log('adding ot whitelist');
+  const TX = await eveeContract.methods
+    .addToWhiteList(slave_proxy.address)
+    .encodeABI();
+  await sendTXWithPkey(
+    web3,
+    master_proxy,
+    TX,
+    0,
+    eveeContract,
+    master_proxy_pkey,
+    MaxFee
+  );
+} else console.log('already white listed');
 }
 
 async function sendTXWithPkey(web3, account, abi, amount, to, pkey, MaxFee) {
-  const transaction = {
-    from: account.address,
-    maxFeePerGas: await web3.utils.toHex(MaxFee),
-    maxPriorityFeePerGas: await web3.utils.toHex(MaxFee),
-    to: to._address,
-    data: abi,
-    gasLimit: await web3.utils.toHex(6000000),
-    value: amount,
-  };
+const transaction = {
+  from: account.address,
+  maxFeePerGas: await web3.utils.toHex(MaxFee),
+  maxPriorityFeePerGas: await web3.utils.toHex(MaxFee),
+  to: to._address,
+  data: abi,
+  gasLimit: await web3.utils.toHex(6000000),
+  value: amount,
+};
 
-  const txCount = await web3.eth.getTransactionCount(
-    account.address,
-    'pending'
-  );
-  const common = new Common({
-    chain: Chain.Goerli,
-    hardfork: Hardfork.London,
-  });
-  const tx = FeeMarketEIP1559Transaction.fromTxData(
-    { ...transaction, nonce: await web3.utils.toHex(txCount) },
-    { common }
-  );
-  const singedTx = tx.sign(Buffer.from(pkey, 'hex'));
-  const serializedTx = singedTx.serialize().toString('hex');
-  console.log('preparing to send');
-  const receipt = await web3.eth.sendSignedTransaction(
-    '0x' + serializedTx,
-    (err, hash) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log('sending tx, hash : ' + hash);
+const txCount = await web3.eth.getTransactionCount(
+  account.address,
+  'pending'
+);
+const common = new Common({
+  chain: Chain.Goerli,
+  hardfork: Hardfork.London,
+});
+const tx = FeeMarketEIP1559Transaction.fromTxData(
+  { ...transaction, nonce: await web3.utils.toHex(txCount) },
+  { common }
+);
+const singedTx = tx.sign(Buffer.from(pkey, 'hex'));
+const serializedTx = singedTx.serialize().toString('hex');
+console.log('preparing to send');
+const receipt = await web3.eth.sendSignedTransaction(
+  '0x' + serializedTx,
+  (err, hash) => {
+    if (err) {
+      console.log(err);
+      return;
     }
-  );
+    console.log('sending tx, hash : ' + hash);
+  }
+);
 }
