@@ -116,6 +116,13 @@ async function getComMsg(c,_from,_to, _filter){
 
 }
 
+async function addRemoveMinter(web3,accounts,com_account_pkey,eveeContract,eveeNFTInstance,MaxFee,addRemove){
+  const TX = await eveeNFTInstance.methods
+      .addRemoveMinter(eveeContract._address,addRemove)
+      .encodeABI()
+      await sendTXWithPkey (web3,accounts,TX,0,eveeNFTInstance,com_account_pkey,MaxFee)
+}
+
 async function sendPaidMsg (web3,com_account,com_account_pkey,recipiantContract,MaxFee){
     
     const TX = await recipiantContract.methods
@@ -270,3 +277,4 @@ exports.setWhiteList = setWhiteList
 exports.sendCom_NoTXData = sendCom_NoTXData
 exports.sendPaidMsg = sendPaidMsg
 exports.getComMsg = getComMsg
+exports.addRemoveMinter =addRemoveMinter
