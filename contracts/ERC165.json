@@ -317,7 +317,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-04-17T20:41:51.003Z",
+  "updatedAt": "2022-04-18T10:03:46.084Z",
   "devdoc": {
     "details": "A standard for detecting smart contract interfaces.  See: https://eips.ethereum.org/EIPS/eip-165.",
     "kind": "dev",

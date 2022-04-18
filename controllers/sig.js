@@ -62,7 +62,7 @@ exports.getAccountsRecover = async (req, res, next) => {
       await lockSem('semaphore.lock');
 
       const comDict = await getCommercialsSharedData();
-      console.log('comDict', comDict);
+      console.log('comDict', comDict["ComsArray"]);
 
       const minPriceForCom = gasEst * MaxFee;
       console.log('minPriceForCom', minPriceForCom);
@@ -75,8 +75,18 @@ exports.getAccountsRecover = async (req, res, next) => {
         )
         .call({ from: masterProxy });
       console.log(comId);
+      const usedCounts = {};
+      const allCounts = {};
+      for (const num of comDict["ComsArray"]) {
+        usedCounts[num] = usedCounts[num] ? usedCounts[num] + 1 : 1;
+      }
+      for (const num of comId) {
+        allCounts[num] = allCounts[num] ? allCounts[num] + 1 : 1;
+      }
+
       for (const comNum of comId) {
-        if (!comDict.ComsArray.includes(comNum)) {
+        console.log('Trying to take com ', comNum , ' used count ', usedCounts[comNum],' avilable ', allCounts[comNum])
+        if ( !usedCounts[comNum] || (usedCounts[comNum] <  allCounts[comNum])) {
           ChoosenCom = comNum;
           break;
         }

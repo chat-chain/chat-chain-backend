@@ -28,12 +28,13 @@ async function execc (){
     	console.error(err)
   	}
 	console.log('Starting')
-  const Evee = require('./contracts/Evee.json')
   const EveeTest = require('./contracts/EveeTest.json')
   const EveeNFT  = require ('./contracts/EveeNFT.json')
   const Recipiant  = require('./contracts/Recipiant.json')
   const RecipiantHashDomainTest  = require('./contracts/RecipiantHashDomainTest.json')
-  const RecipiantHashDomain  = require('./contracts/RecipiantHashDomain.json')  
+  const RecipiantHashDomain  = require('./contracts/RecipiantHashDomain.json')
+  const Evee = require('./contracts/Evee.json')
+  
     const provider = infuraUrl
     const web3 = createAlchemyWeb3(alchUrl)
     const networkId = await web3.eth.net.getId()

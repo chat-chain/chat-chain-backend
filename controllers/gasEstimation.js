@@ -97,6 +97,7 @@ const getGasEstimation = async (
       30
     )
     .call({ from: process.env.E_WALLET_ADD_ZERO_COM })
+    //console.log(anyComId)
   const data = await eveeContract.methods
     .freeSendMessege(
       v,

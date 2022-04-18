@@ -11632,7 +11632,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-04-17T20:41:50.952Z",
+  "updatedAt": "2022-04-18T10:03:46.028Z",
   "devdoc": {
     "details": "Optional metadata implementation for ERC-721 non-fungible token standard.",
     "kind": "dev",

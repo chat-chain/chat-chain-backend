@@ -907,7 +907,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-04-17T20:41:50.999Z",
+  "updatedAt": "2022-04-18T10:03:46.076Z",
   "devdoc": {
     "details": "Utility library of inline functions on addresses.",
     "kind": "dev",
