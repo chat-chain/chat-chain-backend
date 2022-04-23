@@ -50,15 +50,15 @@
     "absolutePath": "project:/contracts/tokens/erc721-token-receiver.sol",
     "exportedSymbols": {
       "ERC721TokenReceiver": [
-        4294
+        4349
       ]
     },
-    "id": 4295,
+    "id": 4350,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4278,
+        "id": 4333,
         "literals": [
           "solidity",
           "^",
@@ -75,15 +75,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 4279,
+          "id": 4334,
           "nodeType": "StructuredDocumentation",
           "src": "60:135:12",
           "text": " @dev ERC-721 interface for accepting safe transfers.\n See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md."
         },
         "fullyImplemented": false,
-        "id": 4294,
+        "id": 4349,
         "linearizedBaseContracts": [
-          4294
+          4349
         ],
         "name": "ERC721TokenReceiver",
         "nameLocation": "207:19:12",
@@ -91,13 +91,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 4280,
+              "id": 4335,
               "nodeType": "StructuredDocumentation",
               "src": "235:933:12",
               "text": " @notice The contract address is always the message sender. A wallet/broker/auction application\n MUST implement the wallet interface if it will accept safe transfers.\n @dev Handle the receipt of a NFT. The ERC721 smart contract calls this function on the\n recipient after a `transfer`. This function MAY throw to revert and reject the transfer. Return\n of other than the magic value MUST result in the transaction being reverted.\n Returns `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))` unless throwing.\n @param _operator The address which called `safeTransferFrom` function.\n @param _from The address which previously owned the token.\n @param _tokenId The NFT identifier which is being transferred.\n @param _data Additional data with no specified format.\n @return Returns `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`."
             },
             "functionSelector": "150b7a02",
-            "id": 4293,
+            "id": 4348,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -105,17 +105,17 @@
             "nameLocation": "1181:16:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4289,
+              "id": 4344,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4282,
+                  "id": 4337,
                   "mutability": "mutable",
                   "name": "_operator",
                   "nameLocation": "1212:9:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1204:17:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -124,7 +124,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4281,
+                    "id": 4336,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1204:7:12",
@@ -138,12 +138,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4284,
+                  "id": 4339,
                   "mutability": "mutable",
                   "name": "_from",
                   "nameLocation": "1236:5:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1228:13:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -152,7 +152,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4283,
+                    "id": 4338,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1228:7:12",
@@ -166,12 +166,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4286,
+                  "id": 4341,
                   "mutability": "mutable",
                   "name": "_tokenId",
                   "nameLocation": "1256:8:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1248:16:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -180,7 +180,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4285,
+                    "id": 4340,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1248:7:12",
@@ -193,12 +193,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4288,
+                  "id": 4343,
                   "mutability": "mutable",
                   "name": "_data",
                   "nameLocation": "1286:5:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1271:20:12",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -207,7 +207,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 4287,
+                    "id": 4342,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1271:5:12",
@@ -222,17 +222,17 @@
               "src": "1197:99:12"
             },
             "returnParameters": {
-              "id": 4292,
+              "id": 4347,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4291,
+                  "id": 4346,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1324:6:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -241,7 +241,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 4290,
+                    "id": 4345,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "1324:6:12",
@@ -255,14 +255,14 @@
               ],
               "src": "1323:8:12"
             },
-            "scope": 4294,
+            "scope": 4349,
             "src": "1172:160:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4295,
+        "scope": 4350,
         "src": "197:1140:12",
         "usedErrors": []
       }
@@ -273,15 +273,15 @@
     "absolutePath": "project:/contracts/tokens/erc721-token-receiver.sol",
     "exportedSymbols": {
       "ERC721TokenReceiver": [
-        4294
+        4349
       ]
     },
-    "id": 4295,
+    "id": 4350,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4278,
+        "id": 4333,
         "literals": [
           "solidity",
           "^",
@@ -298,15 +298,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 4279,
+          "id": 4334,
           "nodeType": "StructuredDocumentation",
           "src": "60:135:12",
           "text": " @dev ERC-721 interface for accepting safe transfers.\n See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md."
         },
         "fullyImplemented": false,
-        "id": 4294,
+        "id": 4349,
         "linearizedBaseContracts": [
-          4294
+          4349
         ],
         "name": "ERC721TokenReceiver",
         "nameLocation": "207:19:12",
@@ -314,13 +314,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 4280,
+              "id": 4335,
               "nodeType": "StructuredDocumentation",
               "src": "235:933:12",
               "text": " @notice The contract address is always the message sender. A wallet/broker/auction application\n MUST implement the wallet interface if it will accept safe transfers.\n @dev Handle the receipt of a NFT. The ERC721 smart contract calls this function on the\n recipient after a `transfer`. This function MAY throw to revert and reject the transfer. Return\n of other than the magic value MUST result in the transaction being reverted.\n Returns `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))` unless throwing.\n @param _operator The address which called `safeTransferFrom` function.\n @param _from The address which previously owned the token.\n @param _tokenId The NFT identifier which is being transferred.\n @param _data Additional data with no specified format.\n @return Returns `bytes4(keccak256(\"onERC721Received(address,address,uint256,bytes)\"))`."
             },
             "functionSelector": "150b7a02",
-            "id": 4293,
+            "id": 4348,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -328,17 +328,17 @@
             "nameLocation": "1181:16:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4289,
+              "id": 4344,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4282,
+                  "id": 4337,
                   "mutability": "mutable",
                   "name": "_operator",
                   "nameLocation": "1212:9:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1204:17:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -347,7 +347,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4281,
+                    "id": 4336,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1204:7:12",
@@ -361,12 +361,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4284,
+                  "id": 4339,
                   "mutability": "mutable",
                   "name": "_from",
                   "nameLocation": "1236:5:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1228:13:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -375,7 +375,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4283,
+                    "id": 4338,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1228:7:12",
@@ -389,12 +389,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4286,
+                  "id": 4341,
                   "mutability": "mutable",
                   "name": "_tokenId",
                   "nameLocation": "1256:8:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1248:16:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -403,7 +403,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4285,
+                    "id": 4340,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1248:7:12",
@@ -416,12 +416,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 4288,
+                  "id": 4343,
                   "mutability": "mutable",
                   "name": "_data",
                   "nameLocation": "1286:5:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1271:20:12",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -430,7 +430,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 4287,
+                    "id": 4342,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1271:5:12",
@@ -445,17 +445,17 @@
               "src": "1197:99:12"
             },
             "returnParameters": {
-              "id": 4292,
+              "id": 4347,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4291,
+                  "id": 4346,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4293,
+                  "scope": 4348,
                   "src": "1324:6:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -464,7 +464,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 4290,
+                    "id": 4345,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "1324:6:12",
@@ -478,14 +478,14 @@
               ],
               "src": "1323:8:12"
             },
-            "scope": 4294,
+            "scope": 4349,
             "src": "1172:160:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4295,
+        "scope": 4350,
         "src": "197:1140:12",
         "usedErrors": []
       }
@@ -498,7 +498,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-04-20T07:35:31.309Z",
+  "updatedAt": "2022-04-23T12:51:29.293Z",
   "devdoc": {
     "details": "ERC-721 interface for accepting safe transfers. See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md.",
     "kind": "dev",

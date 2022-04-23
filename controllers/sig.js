@@ -127,6 +127,7 @@ exports.getAccountsRecover = async (req, res, next) => {
         masterProxy,
         req.body.contract_of_remote,
         req.body.deadline,
+        req.body.nonce,
         req.body.txData,
         ChoosenCom
       )

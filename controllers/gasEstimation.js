@@ -40,7 +40,8 @@ const getGasEstimation = async (
   const signer = account.address
   const deadline = Date.now() + 100000
   const txData = RcipiantContract.methods.post(maxString, 0).encodeABI()
-
+  const nonce = 0;
+  console.log('none is :', nonce)
   const chainID = 5
   const msgParams = JSON.stringify({
     types: {
@@ -54,6 +55,7 @@ const getGasEstimation = async (
         { name: 'txData', type: 'bytes' },
         { name: 'sender', type: 'address' },
         { name: 'deadline', type: 'uint' },
+        { name: 'nonce', type: 'uint' },
       ],
     },
     //make sure to replace verifyingContract with address of deployed contract
@@ -68,6 +70,7 @@ const getGasEstimation = async (
       txData: txData,
       sender: signer,
       deadline: deadline,
+      nonce: nonce,
     },
   })
 
@@ -107,8 +110,9 @@ const getGasEstimation = async (
       process.env.E_WALLET_ADD_ZERO_COM,
       contract_of_remote,
       deadline,
+      nonce,
       txData,
-      anyComId[0]
+      anyComId[0],
     )
     .encodeABI()
   const gasEst = await web3.eth.estimateGas({
