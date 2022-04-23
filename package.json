@@ -9,6 +9,7 @@
     "test": "node test/test.js",
     "replacetest": "node test/TestContractReplacing.js",
     "init": "node init.js",
+    "testbackend": "node test/TestBackend.js",
     "testLand": "node test/TestLandable.js"
   },
   "author": "",
