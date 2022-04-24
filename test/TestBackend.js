@@ -83,7 +83,10 @@ async function execc (){
   //commercials = await test.findCommercials(web3,accProx,eveeContract,0,accProx.address,recipiantContract._address)
   //console.log(commercials)
   
-  await SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'FirstTX')
+  SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'01TX')
+  SendFreeMSGviaBackend (web3,accounts[2],process.env.E_WALLET_PKEY_MASTER_PROXY,eveeContract,recipiantContract,'02TX')
+  SendFreeMSGviaBackend (web3,accounts[3],process.env.E_WALLET_PKEY_SLAVE_PROXY,eveeContract,recipiantContract,'03TX')
+  SendFreeMSGviaBackend (web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,recipiantContract,'04TX')
 
 
   
@@ -161,7 +164,7 @@ async function execc (){
         }
         console.log(reqMsg)
         try {
-            const res = await axios.post(`http://localhost:5000/sig`, reqMsg)
+            const res = axios.post(`http://localhost:5000/sig`, reqMsg)
             console.log('res: ', res)
         } catch (err) {
             console.log('err:', err)
