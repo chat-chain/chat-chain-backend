@@ -256,7 +256,7 @@ const lockSem = async (semFile) => {
       console.log('lock obtained', semFile);
       locked = true;
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       console.log('failed to lock', semFile);
       locked = false;
       await new Promise((resolve) => setTimeout(resolve, timeout));
