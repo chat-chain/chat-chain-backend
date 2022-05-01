@@ -42,7 +42,7 @@ const getGasEstimation = async (
   const txData = RcipiantContract.methods.post(maxString, 0).encodeABI()
   const nonce = 0;
   console.log('none is :', nonce)
-  const chainID = 5
+  const chainID = 80001
   const msgParams = JSON.stringify({
     types: {
       EIP712Domain: [
@@ -130,7 +130,7 @@ const getGasEstimation = async (
 
 const init = async () => {
   const web3 = createAlchemyWeb3(
-    `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCH_KEY}`
+    `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCH_KEY}`
   )
   const networkId = await web3.eth.net.getId()
   const account = web3.eth.accounts.privateKeyToAccount(

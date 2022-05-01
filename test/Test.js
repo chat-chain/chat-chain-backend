@@ -5,7 +5,9 @@ const EveeNFT  = require ('../contracts/EveeNFT.json')
 const Recipiant  = require('../contracts/Recipiant.json')
 const { FeeMarketEIP1559Transaction } = require('@ethereumjs/tx')
 const Common = require('@ethereumjs/common').default
-const { Chain, Hardfork } = require('@ethereumjs/common')
+const { Chain, Hardfork  } = require('@ethereumjs/common')
+const {Network} = require('@ethersproject/networks')
+const mumbai_chain_ID = 80001
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
 const alchUrl = `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCH_KEY}`
 const infuraUrl = `https://goerli.infura.io/v3/${process.env.INFURA_URL}`
@@ -13,15 +15,17 @@ const sigUtil = require('eth-sig-util')
 var EthUtil = require('ethereumjs-util');
 var assert = require('assert');
 const TXCost = 2340000
-const chainID = 5
+const chainID = 80001
 const MAX_COMS =30
 const MSG = 'Slave Proxy test'//String(new Array(6).fill('Z'));
 
 
 async function doAsync (){
+
+  
     console.log('Starting')
     const provider = infuraUrl
-    const web3 = createAlchemyWeb3(alchUrl)
+    const web3 = createAlchemyWeb3(process.env.MUMBAI_URL)
     const networkId = await web3.eth.net.getId()
     console.log('networkId',networkId)
     console.log('Recipiant.networks[networkId].address',Recipiant.networks[networkId].address)
@@ -246,10 +250,8 @@ async function sendTXWithPkey (web3,account,abi,amount,to,pkey,MaxFee){
       account.address,
       'pending'
     )
-    const common = new Common({
-      chain: Chain.Goerli,
-      hardfork: Hardfork.London,
-    })
+    const customChainParams = { name: 'matic-mumbai', chainId: 80001, networkId: 80001 }
+    const common = Common.custom({ chainId: 80001 }, { hardfork: Hardfork.London })
     const tx = FeeMarketEIP1559Transaction.fromTxData(
       { ...transaction, nonce: await web3.utils.toHex(txCount) },
       { common }

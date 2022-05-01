@@ -7,7 +7,7 @@ const pinata = pinataSDK(
 )
 const axios = require('axios')
 const alchUrl =
-  'https://eth-goerli.alchemyapi.io/v2/gx7r0fAJac_6aJYDapOtCvB7-ex8C6bw'
+`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCH_KEY}`
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
 const scripty = async () => {
   const jsonToSend = {
@@ -80,7 +80,7 @@ const scripty = async () => {
 const scriptyWeb3 = async () => {
   const web3 = createAlchemyWeb3(alchUrl)
   const provider =
-    'https://goerli.infura.io/v3/8a9359a0ddd34226a522464b60d8edea'
+  `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCH_KEY}`
   web3.setWriteProvider(provider)
   const gas = await web3.eth.getMaxPriorityFeePerGas()
   console.log(gas)

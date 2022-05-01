@@ -8,7 +8,7 @@ const test = require('./test/Test.js')
 const Common = require('@ethereumjs/common').default
 const { Chain, Hardfork } = require('@ethereumjs/common')
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
-const alchUrl = `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCH_KEY}`
+const alchUrl = `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCH_KEY}`
 const infuraUrl = `https://goerli.infura.io/v3/${process.env.INFURA_URL}`
 const sigUtil = require('eth-sig-util')
 var EthUtil = require('ethereumjs-util');
@@ -35,21 +35,23 @@ async function execc (){
   const RecipiantHashDomain  = require('./contracts/RecipiantHashDomain.json')
   const Evee = require('./contracts/Evee.json')
   
-    const provider = infuraUrl
     const web3 = createAlchemyWeb3(alchUrl)
     const networkId = await web3.eth.net.getId()
     console.log('networkId',networkId)
     console.log('Recipiant.networks[networkId].address',Recipiant.networks[networkId].address)
+    console.log('Evee.networks[networkId].address',Evee.networks[networkId].address)
+
     const recipiantContract = new web3.eth.Contract(Recipiant.abi,Recipiant.networks[networkId].address)
+    
 
     const eveeContract = new web3.eth.Contract(Evee.abi, Evee.networks[networkId].address)
-    const eveeTestContract = new web3.eth.Contract(EveeTest.abi, EveeTest.networks[networkId].address)
+    //const eveeTestContract = new web3.eth.Contract(EveeTest.abi, EveeTest.networks[networkId].address)
 
 
     const eveeNFTInstance = new web3.eth.Contract(EveeNFT.abi,EveeNFT.networks[networkId].address)
 
-    const RecipiantHashDomainTestInstance = new web3.eth.Contract(RecipiantHashDomainTest.abi,RecipiantHashDomainTest.networks[networkId].address)
-    const RecipiantHashDomainInstance = new web3.eth.Contract(RecipiantHashDomain.abi,RecipiantHashDomain.networks[networkId].address)
+   //const RecipiantHashDomainTestInstance = new web3.eth.Contract(RecipiantHashDomainTest.abi,RecipiantHashDomainTest.networks[networkId].address)
+    //const RecipiantHashDomainInstance = new web3.eth.Contract(RecipiantHashDomain.abi,RecipiantHashDomain.networks[networkId].address)
 
     //account[0] = commercial maker
     //account[1] = free user

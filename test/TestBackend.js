@@ -10,13 +10,12 @@ const test = require('./Test.js')
 const Common = require('@ethereumjs/common').default
 const { Chain, Hardfork } = require('@ethereumjs/common')
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
-const alchUrl = `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCH_KEY}`
-const infuraUrl = `https://goerli.infura.io/v3/${process.env.INFURA_URL}`
+const alchUrl = `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCH_KEY}`
 const sigUtil = require('eth-sig-util')
 var EthUtil = require('ethereumjs-util');
 var assert = require('assert');
 const TXCost = 2340000
-const chainID = 5
+const chainID = 80001
 const MAX_COMS =30
 const MSG = 'Slave Proxy test'//String(new Array(6).fill('Z'));
 const masterProxy = '0xf38232721553a3dfa5F7c0E473c6A439CD776038';
@@ -31,7 +30,6 @@ async function execc (){
   const Recipiant  = require('../contracts/Recipiant.json')
   const RecipiantHashDomainTest  = require('../contracts/RecipiantHashDomainTest.json')
   const RecipiantHashDomain  = require('../contracts/RecipiantHashDomain.json')  
-    const provider = infuraUrl
     const web3 = createAlchemyWeb3(alchUrl)
     const networkId = await web3.eth.net.getId()
     console.log('networkId',networkId)
@@ -39,14 +37,7 @@ async function execc (){
     const recipiantContract = new web3.eth.Contract(Recipiant.abi,Recipiant.networks[networkId].address)
 
     const eveeContract = new web3.eth.Contract(Evee.abi, Evee.networks[networkId].address)
-    const eveeTestContract = new web3.eth.Contract(EveeTest.abi, EveeTest.networks[networkId].address)
-
-
-    const eveeNFTInstance = new web3.eth.Contract(EveeNFT.abi,EveeNFT.networks[networkId].address)
-
-    const RecipiantHashDomainTestInstance = new web3.eth.Contract(RecipiantHashDomainTest.abi,RecipiantHashDomainTest.networks[networkId].address)
-    const RecipiantHashDomainInstance = new web3.eth.Contract(RecipiantHashDomain.abi,RecipiantHashDomain.networks[networkId].address)
-
+    
     //account[0] = commercial maker
     //account[1] = free user
     //account[2] = proxy master
@@ -83,10 +74,10 @@ async function execc (){
   //commercials = await test.findCommercials(web3,accProx,eveeContract,0,accProx.address,recipiantContract._address)
   //console.log(commercials)
   
-  SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'01TX')
-  SendFreeMSGviaBackend (web3,accounts[2],process.env.E_WALLET_PKEY_MASTER_PROXY,eveeContract,recipiantContract,'02TX')
-  SendFreeMSGviaBackend (web3,accounts[3],process.env.E_WALLET_PKEY_SLAVE_PROXY,eveeContract,recipiantContract,'03TX')
-  SendFreeMSGviaBackend (web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,recipiantContract,'04TX')
+  SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'mumbai0')
+  SendFreeMSGviaBackend (web3,accounts[2],process.env.E_WALLET_PKEY_MASTER_PROXY,eveeContract,recipiantContract,'mumbai1')
+  SendFreeMSGviaBackend (web3,accounts[3],process.env.E_WALLET_PKEY_SLAVE_PROXY,eveeContract,recipiantContract,'mumbai2')
+  SendFreeMSGviaBackend (web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,recipiantContract,'mumbai3')
 
 
   

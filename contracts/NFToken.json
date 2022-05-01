@@ -23249,7 +23249,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-04-23T12:51:29.375Z",
+  "updatedAt": "2022-05-01T09:13:21.936Z",
   "devdoc": {
     "details": "Implementation of ERC-721 non-fungible token standard.",
     "kind": "dev",
