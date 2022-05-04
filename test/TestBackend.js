@@ -42,12 +42,15 @@ async function execc (){
     //account[1] = free user
     //account[2] = proxy master
     //account[3] = proxy slave #1
-     const accounts = [await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_COMMERCIAL_MAKER),await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_FREE_USER) ,await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_MASTER_PROXY),await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_SLAVE_PROXY) ]
+    
+    const accounts = [await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_COMMERCIAL_MAKER),await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_FREE_USER) ,await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_MASTER_PROXY),await web3.eth.accounts.privateKeyToAccount(process.env.E_WALLET_PKEY_SLAVE_PROXY) ]
 
     console.log('owner           ', accounts[0].address)
     console.log('free user       ', accounts[1].address)
     console.log('proxy master    ', accounts[2].address)
     console.log('proxy slave     ', accounts[3].address)
+    console.log('proxy slave1     ', accounts[3].address)
+
 
     const block = await web3.eth.getBlock('pending')
     const baseFee = parseInt(block.baseFeePerGas)
@@ -74,11 +77,29 @@ async function execc (){
   //commercials = await test.findCommercials(web3,accProx,eveeContract,0,accProx.address,recipiantContract._address)
   //console.log(commercials)
   
-  SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'mumbai0')
-  SendFreeMSGviaBackend (web3,accounts[2],process.env.E_WALLET_PKEY_MASTER_PROXY,eveeContract,recipiantContract,'mumbai1')
-  SendFreeMSGviaBackend (web3,accounts[3],process.env.E_WALLET_PKEY_SLAVE_PROXY,eveeContract,recipiantContract,'mumbai2')
-  SendFreeMSGviaBackend (web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,recipiantContract,'mumbai3')
+  //SendFreeMSGviaBackend (web3,accounts[1],process.env.E_WALLET_PKEY_FREE_USER,eveeContract,recipiantContract,'mumbai0')
+  //SendFreeMSGviaBackend (web3,accounts[2],process.env.E_WALLET_PKEY_MASTER_PROXY,eveeContract,recipiantContract,'mumbai1')
+  //SendFreeMSGviaBackend (web3,accounts[3],process.env.E_WALLET_PKEY_SLAVE_PROXY,eveeContract,recipiantContract,'mumbai2')
+  //SendFreeMSGviaBackend (web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,recipiantContract,'mumbai3')
+  const proxys = process.env.E_WALLET_PKEY_SLAVE_PROXYS.split(',')
+  console.log('proxys',proxys)
+  let i = 1 
+  for (proxy of proxys) {
+    await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 10000)));
+    account = await web3.eth.accounts.privateKeyToAccount(proxy)
+    console.log ('sending as ', account.address)
+    let text = 'Stress ' + String(i) + ' ' + account.address
+    SendFreeMSGviaBackend (web3,account,proxy,eveeContract,recipiantContract,text)
+    i++
+  }
+  /*text ='2'
+  for (proxy of proxys) {
+    account = await web3.eth.accounts.privateKeyToAccount(proxy)
+    console.log ('sending as ', account)
+    SendFreeMSGviaBackend (web3,account,proxy,eveeContract,recipiantContract,text)
+    text += '2'
 
+  }*/
 
   
 	}
