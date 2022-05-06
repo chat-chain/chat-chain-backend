@@ -20,6 +20,7 @@ const timeout = 100
 exports.getAccountsRecover = async (req, res, next) => {
   let proxySlavePkey = 0;
   let ChoosenCom = 0;
+  return_val = false;
   try {
     console.log('INTERCEPTED SIG URL');
 
@@ -225,6 +226,12 @@ exports.getAccountsRecover = async (req, res, next) => {
       await unlockSem('semaphore.lock');
     }
   } catch (errorrr) {
+  
+    console.log(errorrr);
+    return_val = res.status(500).json({ message: errorrr.message })
+    
+  }
+  finally{
     await realeaseProxyAdd(proxySlavePkey);
     //remove com from list
     if (ChoosenCom != 0) {
@@ -241,9 +248,10 @@ exports.getAccountsRecover = async (req, res, next) => {
       await writeCommercialsSharedData(comDict);
 
       await unlockSem('semaphore.lock');
+      if (return_val)
+        return return_val;
     }
-    console.log(errorrr);
-    return res.status(500).json({ message: errorrr.message });
+
   }
 
   next();
