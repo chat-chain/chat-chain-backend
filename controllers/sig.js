@@ -20,6 +20,7 @@ const timeout = 100
 exports.getAccountsRecover = async (req, res, next) => {
   let proxySlavePkey = 0;
   let ChoosenCom = 0;
+  let senderVerifyed = false
   return_val = false;
   try {
     console.log('INTERCEPTED SIG URL');
@@ -63,50 +64,18 @@ exports.getAccountsRecover = async (req, res, next) => {
 
     try {
       await lockSem('semaphore.lock');
-
-      const comDict = await getCommercialsSharedData();
-      console.log('comDict', comDict["ComsArray"]);
-
-      const minPriceForCom = gasEst * MaxFee;
-      //const minPriceForCom = 1
-      console.log('minPriceForCom', minPriceForCom);
-      const comId = await eveeContract.methods
-        .findCommercialArr(
-          masterProxy,
-          req.body.contract_of_remote,
-          minPriceForCom,
-          30
-        )
-        .call({ from: masterProxy });
-      console.log(comId);
-      const usedCounts = {};
-      const allCounts = {};
-      for (const num of comDict["ComsArray"]) {
-        usedCounts[num] = usedCounts[num] ? usedCounts[num] + 1 : 1;
-      }
-      for (const num of comId) {
-        allCounts[num] = allCounts[num] ? allCounts[num] + 1 : 1;
-      }
-
-      for (const comNum of comId) {
-        console.log('Trying to take com ', comNum , ' used count ', usedCounts[comNum],' avilable ', allCounts[comNum])
-        if ( !usedCounts[comNum] || (usedCounts[comNum] <  allCounts[comNum])) {
-          ChoosenCom = comNum;
-          break;
-        }
-      }
+      ChoosenCom = await getCommercial(eveeContract,masterProxy,req,gasEst,MaxFee);
       if (ChoosenCom == 0) throw 'NO COMMERCIAL!!!!!!!!!!!!!!!!!!';
-      else console.log('Chosen com is : ', ChoosenCom);
-      comDict.ComsArray.push(ChoosenCom);
-
-      await writeCommercialsSharedData(comDict);
+      if (! (await senderVerifivatopn(req.body.signer))){ throw 'sender already in use!!!!!!!!!!!!!!!!!!'};
+      senderVerifyed = true
     } catch (err) {
       await unlockSem('semaphore.lock');
-
-      throw err;
+      console.log(err);
+      return_val = res.status(500).json({ message: err })
+      return return_val;
     }
-
-    await unlockSem('semaphore.lock');
+      await unlockSem('semaphore.lock');
+    
 
     //unlock semaphore
     proxySlavePkey = await GetProxyAdd();
@@ -209,22 +178,6 @@ exports.getAccountsRecover = async (req, res, next) => {
         web3.utils.fromWei(account_balance_prior_to_send)
     );
     await realeaseProxyAdd(proxySlavePkey);
-    //remove com from list
-    if (ChoosenCom != 0) {
-      await lockSem('semaphore.lock');
-
-      const comDict = await getCommercialsSharedData();
-      for (let i = 0; i < comDict.ComsArray.length; i++) {
-        //console.log('test', comDict.ComsArray[i],String(ChoosenCom));
-        if (comDict.ComsArray[i] == String(ChoosenCom)) {
-          comDict.ComsArray.splice(i);
-        }
-      }
-      console.log(comDict.ComsArray);
-      await writeCommercialsSharedData(comDict);
-
-      await unlockSem('semaphore.lock');
-    }
   } catch (errorrr) {
   
     console.log(errorrr);
@@ -233,29 +186,51 @@ exports.getAccountsRecover = async (req, res, next) => {
   }
   finally{
     await realeaseProxyAdd(proxySlavePkey);
-    //remove com from list
-    if (ChoosenCom != 0) {
-      await lockSem('semaphore.lock');
+    
 
+      await lockSem('semaphore.lock');
+      if (ChoosenCom != 0){//remove com from list
       const comDict = await getCommercialsSharedData();
       for (let i = 0; i < comDict.ComsArray.length; i++) {
-        //console.log('test', comDict.ComsArray[i],String(ChoosenCom));
         if (comDict.ComsArray[i] == String(ChoosenCom)) {
           comDict.ComsArray.splice(i);
         }
       }
       console.log(comDict.ComsArray);
       await writeCommercialsSharedData(comDict);
+      }
+      if (senderVerifyed){//remove sender from list
+        const sendersDict = await getSendersSharedData();
+        for (let i = 0; i < sendersDict.sendersArray.length; i++) {
+          if (sendersDict.sendersArray[i] == req.body.signer) {
+            sendersDict.sendersArray.splice(i);
+          }
+        }
+        console.log(sendersDict.sendersArray);
+        await writeSendersSharedData(sendersDict);
+    }
+
 
       await unlockSem('semaphore.lock');
       if (return_val)
         return return_val;
-    }
+    
 
   }
 
   next();
 };
+
+
+
+
+
+
+
+
+
+
+
 
 const lockSem = async (semFile) => {
   console.log('attemting semaphore lock');
@@ -301,6 +276,25 @@ const getCommercialsSharedData = async () => {
   console.log('_comDict', _comDict);
   return JSON.parse(_comDict);
 };
+
+
+const getSendersSharedData = async () => {
+  const _sendersDict = await fs.promises.readFile(
+    './MultiProcSenders.json',
+    'utf8',
+    (err, jsonString) => {
+      if (err) {
+        console.log('File read failed:', err);
+        throw err;
+      }
+      console.log('File data:', jsonString);
+      return JSON.parse(jsonString);
+    }
+  );
+  console.log('_comDict', _sendersDict);
+  return JSON.parse(_sendersDict);
+};
+
 const writeCommercialsSharedData = async (comDict) => {
   await fs.promises.writeFile(
     'MultiProcComs.json',
@@ -310,6 +304,18 @@ const writeCommercialsSharedData = async (comDict) => {
     }
   );
 };
+
+const writeSendersSharedData = async (sendersDict) => {
+  await fs.promises.writeFile(
+    'MultiProcSenders.json',
+    JSON.stringify(sendersDict),
+    function (err, result) {
+      if (err) console.log('error', err);
+    }
+  );
+};
+
+
 
 const GetProxyAdd = async () => {
   let proxy = 0;
@@ -459,4 +465,57 @@ const receipt = await web3.eth.sendSignedTransaction(
     console.log('sending tx, hash : ' + hash);
   }
 );
+}
+
+
+async function  getCommercial(eveeContract,masterProxy,req,gasEst,MaxFee){
+  let ChoosenCom = 0
+  const comDict = await getCommercialsSharedData();
+  console.log('comDict', comDict["ComsArray"]);
+
+  const minPriceForCom = gasEst * MaxFee;
+  //const minPriceForCom = 5709480083739040
+  console.log('minPriceForCom', minPriceForCom);
+  const comId = await eveeContract.methods
+    .findCommercialArr(
+      masterProxy,
+      req.body.contract_of_remote,
+      minPriceForCom,
+      30
+    )
+    .call({ from: masterProxy });
+  console.log(comId);
+  const usedCounts = {};
+  const allCounts = {};
+  for (const num of comDict["ComsArray"]) {
+    usedCounts[num] = usedCounts[num] ? usedCounts[num] + 1 : 1;
+  }
+  for (const num of comId) {
+    allCounts[num] = allCounts[num] ? allCounts[num] + 1 : 1;
+  }
+
+  for (const comNum of comId) {
+    console.log('Trying to take com ', comNum , ' used count ', usedCounts[comNum],' avilable ', allCounts[comNum])
+    if ( !usedCounts[comNum] || (usedCounts[comNum] <  allCounts[comNum])) {
+      ChoosenCom = comNum;
+      break;
+    }
+  }
+  if (ChoosenCom == 0)throw 'NO COMMERCIAL!!!!!!!!!!!!!!!!!!'
+  console.log('Chosen com is : ', ChoosenCom);
+  comDict.ComsArray.push(ChoosenCom);
+
+  await writeCommercialsSharedData(comDict);
+  return ChoosenCom;
+}
+
+async function  senderVerifivatopn(sender){
+  const sendersDict = await getSendersSharedData();
+  for (const add of sendersDict["sendersArray"]) {
+    if (add == sender) return false;
+  }
+  sendersDict.sendersArray.push(sender);
+  await writeSendersSharedData(sendersDict);
+
+  return true;
 }

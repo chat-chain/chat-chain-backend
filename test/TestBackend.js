@@ -85,13 +85,14 @@ async function execc (){
   console.log('proxys',proxys)
   let i = 1 
   for (proxy of proxys) {
-    await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 10000)));
+    await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 10)));
     account = await web3.eth.accounts.privateKeyToAccount(proxy)
     console.log ('sending as ', account.address)
-    let text = 'Stress ' + String(i) + ' ' + account.address
+    let text = 'Stresssssssssss ' + String(i) + ' ' + account.address
     SendFreeMSGviaBackend (web3,account,proxy,eveeContract,recipiantContract,text)
     i++
   }
+
   /*text ='2'
   for (proxy of proxys) {
     account = await web3.eth.accounts.privateKeyToAccount(proxy)

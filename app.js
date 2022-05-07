@@ -24,9 +24,17 @@ const start = async () => {
 
   await unlockSemAttemt('indexing.lock')
   const dict = { ComsArray: [] }
+  const senders = { sendersArray: [] }
   fs.writeFile(
     'MultiProcComs.json',
     JSON.stringify(dict),
+    function (err, result) {
+      if (err) console.log('error', err)
+    }
+  )
+  fs.writeFile(
+    'MultiProcSenders.json',
+    JSON.stringify(senders),
     function (err, result) {
       if (err) console.log('error', err)
     }
