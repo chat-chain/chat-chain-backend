@@ -474,7 +474,7 @@ async function  getCommercial(eveeContract,masterProxy,req,gasEst,MaxFee){
   console.log('comDict', comDict["ComsArray"]);
 
   const minPriceForCom = gasEst * MaxFee;
-  //const minPriceForCom = 5709480083739040
+  //const minPriceForCom = 3
   console.log('minPriceForCom', minPriceForCom);
   const comId = await eveeContract.methods
     .findCommercialArr(
