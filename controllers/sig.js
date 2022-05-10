@@ -54,7 +54,7 @@ exports.getAccountsRecover = async (req, res, next) => {
     const block = await web3.eth.getBlock('pending');
     const baseFee = parseInt(block.baseFeePerGas);
     const priorityFee = parseInt(await web3.eth.getMaxPriorityFeePerGas());
-    const MaxFee = 2 * baseFee + priorityFee;
+    const MaxFee = parseInt(1.5 * baseFee + priorityFee);
     console.log('MaxFeePerGas', MaxFee);
 
     const masterProxy = account.address;
@@ -112,8 +112,10 @@ exports.getAccountsRecover = async (req, res, next) => {
       data: freeSendMessegeData,
     });
     //Can comapre to real cosr
-    console.log('general tx estimation  =  ',gasEst );
-    console.log('real estimation        =  ',gasEstTest );
+    console.log('general gas estimation  =  ',gasEst );
+    console.log('real gas estimation        =  ',gasEstTest );
+    console.log('general cost estimation  =  ',gasEst*MaxFee );
+    console.log('real cost estimation        =  ',gasEstTest*MaxFee );
     const gasLimitHex = web3.utils.toHex(maxGasPerTX);
     const txCount = await web3.eth.getTransactionCount(
       proxySlaveAccount.address,

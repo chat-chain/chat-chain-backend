@@ -16513,19 +16513,19 @@
     "absolutePath": "project:/contracts/EveeLogicTest.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        5309
+        5313
       ],
       "ERC165": [
-        5321
+        5325
       ],
       "ERC721": [
-        4462
+        4466
       ],
       "ERC721Metadata": [
-        4331
+        4335
       ],
       "ERC721TokenReceiver": [
-        4349
+        4353
       ],
       "EveeLogicTest": [
         3349
@@ -16534,16 +16534,16 @@
         3638
       ],
       "NFToken": [
-        5277
+        5281
       ],
       "NFTokenMetadata": [
-        4607
+        4611
       ],
       "Ownable": [
-        4307
+        4311
       ],
       "SupportsInterface": [
-        5358
+        5362
       ],
       "sagisagisagi": [
         2245
@@ -31150,19 +31150,19 @@
     "absolutePath": "project:/contracts/EveeLogicTest.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        5309
+        5313
       ],
       "ERC165": [
-        5321
+        5325
       ],
       "ERC721": [
-        4462
+        4466
       ],
       "ERC721Metadata": [
-        4331
+        4335
       ],
       "ERC721TokenReceiver": [
-        4349
+        4353
       ],
       "EveeLogicTest": [
         3349
@@ -31171,16 +31171,16 @@
         3638
       ],
       "NFToken": [
-        5277
+        5281
       ],
       "NFTokenMetadata": [
-        4607
+        4611
       ],
       "Ownable": [
-        4307
+        4311
       ],
       "SupportsInterface": [
-        5358
+        5362
       ],
       "sagisagisagi": [
         2245
@@ -45789,7 +45789,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-08T18:01:18.426Z",
+  "updatedAt": "2022-05-10T17:11:48.477Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -17,6 +17,7 @@ const TXCost = 2340000
 const chainID = 5
 const MAX_COMS =30
 const MSG = 'Slave Proxy test'//String(new Array(6).fill('Z'));
+const exampleCom = 'VeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURL'
 
 
 execc()
@@ -80,7 +81,7 @@ async function execc (){
 
   //beginning of the world
   await test.addRemoveMinter(web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,eveeNFTInstance,MaxFee,true);
-  await test.sendCom_NoTXData(web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,'',TXCost,1,process.env.E_WALLET_ADD_ZERO_COM,recipiantContract._address,MaxFee)
+  await test.sendCom_NoTXData(web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,eveeContract,exampleCom,TXCost,1,process.env.E_WALLET_ADD_ZERO_COM,recipiantContract._address,MaxFee)
   //await test.sendPaidMsg(web3,accounts[0],process.env.E_WALLET_PKEY_COMMERCIAL_MAKER,recipiantContract,MaxFee)
   
 	}

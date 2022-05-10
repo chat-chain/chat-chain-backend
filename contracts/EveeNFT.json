@@ -16773,34 +16773,34 @@
     "absolutePath": "project:/contracts/EveeNFT.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        5309
+        5313
       ],
       "ERC165": [
-        5321
+        5325
       ],
       "ERC721": [
-        4462
+        4466
       ],
       "ERC721Metadata": [
-        4331
+        4335
       ],
       "ERC721TokenReceiver": [
-        4349
+        4353
       ],
       "EveeNFT": [
         3638
       ],
       "NFToken": [
-        5277
+        5281
       ],
       "NFTokenMetadata": [
-        4607
+        4611
       ],
       "Ownable": [
-        4307
+        4311
       ],
       "SupportsInterface": [
-        5358
+        5362
       ]
     },
     "id": 3639,
@@ -16813,7 +16813,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3639,
-        "sourceUnit": 4608,
+        "sourceUnit": 4612,
         "src": "0:40:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -16825,7 +16825,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3639,
-        "sourceUnit": 4308,
+        "sourceUnit": 4312,
         "src": "42:33:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -16838,7 +16838,7 @@
               "id": 3353,
               "name": "NFTokenMetadata",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4607,
+              "referencedDeclaration": 4611,
               "src": "105:15:4"
             },
             "id": 3354,
@@ -16850,7 +16850,7 @@
               "id": 3355,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4307,
+              "referencedDeclaration": 4311,
               "src": "122:7:4"
             },
             "id": 3356,
@@ -16865,13 +16865,13 @@
         "id": 3638,
         "linearizedBaseContracts": [
           3638,
-          4307,
-          4607,
-          4331,
-          5277,
-          5358,
-          5321,
-          4462
+          4311,
+          4611,
+          4335,
+          5281,
+          5362,
+          5325,
+          4466
         ],
         "name": "EveeNFT",
         "nameLocation": "94:7:4",
@@ -17098,7 +17098,7 @@
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4248,
+                      "referencedDeclaration": 4252,
                       "src": "392:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -17242,7 +17242,7 @@
                       "name": "nftName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4474,
+                      "referencedDeclaration": 4478,
                       "src": "457:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -17289,7 +17289,7 @@
                       "name": "nftSymbol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4477,
+                      "referencedDeclaration": 4481,
                       "src": "480:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -17598,7 +17598,7 @@
                   "id": 3413,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4278,
+                  "referencedDeclaration": 4282,
                   "src": "629:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -17909,7 +17909,7 @@
                       "lValueRequested": false,
                       "memberName": "mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4606,
+                      "referencedDeclaration": 4610,
                       "src": "857:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -18185,7 +18185,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1150:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -18222,7 +18222,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1170:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -18385,7 +18385,7 @@
                       "lValueRequested": false,
                       "memberName": "_setTokenUri",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "1209:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -18439,7 +18439,7 @@
                   "id": 3467,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1075:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -18466,7 +18466,7 @@
                   "id": 3470,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1102:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -18596,7 +18596,7 @@
                       "name": "idToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4655,
+                      "referencedDeclaration": 4659,
                       "src": "1472:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -18680,7 +18680,7 @@
                         "name": "NOT_OWNER",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4643,
+                        "referencedDeclaration": 4647,
                         "src": "1527:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -18830,7 +18830,7 @@
                         "name": "ZERO_ADDRESS",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4625,
+                        "referencedDeclaration": 4629,
                         "src": "1571:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -18891,7 +18891,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1606:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -18928,7 +18928,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1626:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -19076,7 +19076,7 @@
                       "name": "_transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5038,
+                      "referencedDeclaration": 5042,
                       "src": "1665:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -19145,7 +19145,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "1696:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -19199,7 +19199,7 @@
                   "id": 3503,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1391:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -19226,7 +19226,7 @@
                   "id": 3506,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1418:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -19380,7 +19380,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1949:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -19417,7 +19417,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1969:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -19616,7 +19616,7 @@
                       "lValueRequested": false,
                       "memberName": "_safeTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5264,
+                      "referencedDeclaration": 5268,
                       "src": "2008:23:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -19685,7 +19685,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "2061:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -19739,7 +19739,7 @@
                   "id": 3565,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1874:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -19766,7 +19766,7 @@
                   "id": 3568,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1901:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -19920,7 +19920,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "2301:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -19957,7 +19957,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "2321:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -20152,7 +20152,7 @@
                       "lValueRequested": false,
                       "memberName": "_safeTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5264,
+                      "referencedDeclaration": 5268,
                       "src": "2360:23:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -20221,7 +20221,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "2419:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -20425,34 +20425,34 @@
     "absolutePath": "project:/contracts/EveeNFT.sol",
     "exportedSymbols": {
       "AddressUtils": [
-        5309
+        5313
       ],
       "ERC165": [
-        5321
+        5325
       ],
       "ERC721": [
-        4462
+        4466
       ],
       "ERC721Metadata": [
-        4331
+        4335
       ],
       "ERC721TokenReceiver": [
-        4349
+        4353
       ],
       "EveeNFT": [
         3638
       ],
       "NFToken": [
-        5277
+        5281
       ],
       "NFTokenMetadata": [
-        4607
+        4611
       ],
       "Ownable": [
-        4307
+        4311
       ],
       "SupportsInterface": [
-        5358
+        5362
       ]
     },
     "id": 3639,
@@ -20465,7 +20465,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3639,
-        "sourceUnit": 4608,
+        "sourceUnit": 4612,
         "src": "0:40:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -20477,7 +20477,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3639,
-        "sourceUnit": 4308,
+        "sourceUnit": 4312,
         "src": "42:33:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -20490,7 +20490,7 @@
               "id": 3353,
               "name": "NFTokenMetadata",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4607,
+              "referencedDeclaration": 4611,
               "src": "105:15:4"
             },
             "id": 3354,
@@ -20502,7 +20502,7 @@
               "id": 3355,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4307,
+              "referencedDeclaration": 4311,
               "src": "122:7:4"
             },
             "id": 3356,
@@ -20517,13 +20517,13 @@
         "id": 3638,
         "linearizedBaseContracts": [
           3638,
-          4307,
-          4607,
-          4331,
-          5277,
-          5358,
-          5321,
-          4462
+          4311,
+          4611,
+          4335,
+          5281,
+          5362,
+          5325,
+          4466
         ],
         "name": "EveeNFT",
         "nameLocation": "94:7:4",
@@ -20750,7 +20750,7 @@
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4248,
+                      "referencedDeclaration": 4252,
                       "src": "392:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -20894,7 +20894,7 @@
                       "name": "nftName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4474,
+                      "referencedDeclaration": 4478,
                       "src": "457:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -20941,7 +20941,7 @@
                       "name": "nftSymbol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4477,
+                      "referencedDeclaration": 4481,
                       "src": "480:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -21250,7 +21250,7 @@
                   "id": 3413,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4278,
+                  "referencedDeclaration": 4282,
                   "src": "629:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -21561,7 +21561,7 @@
                       "lValueRequested": false,
                       "memberName": "mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4606,
+                      "referencedDeclaration": 4610,
                       "src": "857:10:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -21837,7 +21837,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1150:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -21874,7 +21874,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1170:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -22037,7 +22037,7 @@
                       "lValueRequested": false,
                       "memberName": "_setTokenUri",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "1209:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -22091,7 +22091,7 @@
                   "id": 3467,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1075:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -22118,7 +22118,7 @@
                   "id": 3470,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1102:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -22248,7 +22248,7 @@
                       "name": "idToOwner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4655,
+                      "referencedDeclaration": 4659,
                       "src": "1472:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -22332,7 +22332,7 @@
                         "name": "NOT_OWNER",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4643,
+                        "referencedDeclaration": 4647,
                         "src": "1527:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -22482,7 +22482,7 @@
                         "name": "ZERO_ADDRESS",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4625,
+                        "referencedDeclaration": 4629,
                         "src": "1571:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -22543,7 +22543,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1606:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -22580,7 +22580,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1626:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -22728,7 +22728,7 @@
                       "name": "_transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5038,
+                      "referencedDeclaration": 5042,
                       "src": "1665:9:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -22797,7 +22797,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "1696:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -22851,7 +22851,7 @@
                   "id": 3503,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1391:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -22878,7 +22878,7 @@
                   "id": 3506,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1418:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -23032,7 +23032,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "1949:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -23069,7 +23069,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "1969:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -23268,7 +23268,7 @@
                       "lValueRequested": false,
                       "memberName": "_safeTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5264,
+                      "referencedDeclaration": 5268,
                       "src": "2008:23:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -23337,7 +23337,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "2061:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -23391,7 +23391,7 @@
                   "id": 3565,
                   "name": "canTransfer",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4735,
+                  "referencedDeclaration": 4739,
                   "src": "1874:11:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -23418,7 +23418,7 @@
                   "id": 3568,
                   "name": "validNFToken",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 4754,
+                  "referencedDeclaration": 4758,
                   "src": "1901:12:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -23572,7 +23572,7 @@
                           "name": "idToOwner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4655,
+                          "referencedDeclaration": 4659,
                           "src": "2301:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -23609,7 +23609,7 @@
                           "name": "idToUri",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4482,
+                          "referencedDeclaration": 4486,
                           "src": "2321:7:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
@@ -23804,7 +23804,7 @@
                       "lValueRequested": false,
                       "memberName": "_safeTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5264,
+                      "referencedDeclaration": 5268,
                       "src": "2360:23:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -23873,7 +23873,7 @@
                       "name": "_setTokenUri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4584,
+                      "referencedDeclaration": 4588,
                       "src": "2419:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -24345,12 +24345,12 @@
         }
       },
       "links": {},
-      "address": "0x8c3713DDcAC5aA5eDDe86dfE724F49EcF10FE5c7",
-      "transactionHash": "0x5b9c763e48344a6a9647b5f45edb7c035c994682081a801f47d9379dbfb9110d"
+      "address": "0x389ee105175d4566da4eC5c21d4508a207efAfEE",
+      "transactionHash": "0x114f41884e31a4b4297264b76c01f0a78333a56a070b5b3a1a53a9703e7c0a15"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-08T18:02:16.365Z",
+  "updatedAt": "2022-05-10T17:12:31.058Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

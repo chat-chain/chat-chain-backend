@@ -120,6 +120,7 @@ const getGasEstimation = async (
     from: process.env.E_WALLET_ADD_ZERO_COM,
     data: data,
   })
+  console.log('gasEst is ',gasEst)
   return gasEst
 }
 
