@@ -21,7 +21,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"_interfaceID\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"A standard for detecting smart contract interfaces.  See: https://eips.ethereum.org/EIPS/eip-165.\",\"kind\":\"dev\",\"methods\":{\"supportsInterface(bytes4)\":{\"details\":\"Checks if the smart contract includes a specific interface. This function uses less than 30,000 gas.\",\"params\":{\"_interfaceID\":\"The interface identifier, as specified in ERC-165.\"},\"returns\":{\"_0\":\"True if _interfaceID is supported, false otherwise.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/utils/erc165.sol\":\"ERC165\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/utils/erc165.sol\":{\"keccak256\":\"0xd8c18f29926bf75aace3103a010f542399b6975d3f0a76e8b3f07f4c2fd55b0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://015f502839b075ace581add5da64411cacb6ccf1db0528c4e8efce29fb095f3b\",\"dweb:/ipfs/QmXaT1YBbnVFbGpG4Zrv6WuS7QDUyJGb6Gr7xEbGFEpWYE\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"_interfaceID\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"A standard for detecting smart contract interfaces.  See: https://eips.ethereum.org/EIPS/eip-165.\",\"kind\":\"dev\",\"methods\":{\"supportsInterface(bytes4)\":{\"details\":\"Checks if the smart contract includes a specific interface. This function uses less than 30,000 gas.\",\"params\":{\"_interfaceID\":\"The interface identifier, as specified in ERC-165.\"},\"returns\":{\"_0\":\"True if _interfaceID is supported, false otherwise.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/utils/erc165.sol\":\"ERC165\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/utils/erc165.sol\":{\"keccak256\":\"0xd8c18f29926bf75aace3103a010f542399b6975d3f0a76e8b3f07f4c2fd55b0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://015f502839b075ace581add5da64411cacb6ccf1db0528c4e8efce29fb095f3b\",\"dweb:/ipfs/QmXaT1YBbnVFbGpG4Zrv6WuS7QDUyJGb6Gr7xEbGFEpWYE\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -313,11 +313,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+    "version": "0.8.14+commit.80d49f37.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-10T17:11:48.728Z",
+  "updatedAt": "2022-05-22T08:41:34.631Z",
   "devdoc": {
     "details": "A standard for detecting smart contract interfaces.  See: https://eips.ethereum.org/EIPS/eip-165.",
     "kind": "dev",
