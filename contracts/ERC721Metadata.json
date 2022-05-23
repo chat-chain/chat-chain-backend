@@ -587,7 +587,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-22T08:41:34.495Z",
+  "updatedAt": "2022-05-23T16:15:13.834Z",
   "devdoc": {
     "details": "Optional metadata extension for ERC-721 non-fungible token standard. See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md.",
     "kind": "dev",

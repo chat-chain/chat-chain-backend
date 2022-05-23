@@ -17,7 +17,7 @@ const TXCost = 2340000
 const chainID = 5
 const MAX_COMS =30
 const MSG = 'Slave Proxy test'//String(new Array(6).fill('Z'));
-const exampleCom = 'VeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURLVeryLongURL'
+const exampleCom = 'https://gateway.pinata.cloud/ipfs/QmRgXSYtpAeqSTMGkZqNyxiUxLY1w8bivwTQB9Qmd8zBf8QmRgXSYtpAeqSTMGkZqNyxiUxLY1w8bivwTQB9Qmd8zBf8'
 
 
 execc()
