@@ -475,14 +475,14 @@ async function  getCommercial(eveeContract,masterProxy,req,gasEst,MaxFee){
   const comDict = await getCommercialsSharedData();
   console.log('comDict', comDict["ComsArray"]);
 
-  const minPriceForCom = parseInt((gasEst * MaxFee) * (105/100));
+  const minPriceForComDevidedBy1000 = Math.ceil((gasEst * MaxFee) * (105/100) / 1000);
   //const minPriceForCom = 3
-  console.log('minPriceForCom', minPriceForCom);
+  console.log('minPriceForCom', minPriceForComDevidedBy1000*1000);
   const comId = await eveeContract.methods
     .findCommercialArr(
       masterProxy,
       req.body.contract_of_remote,
-      minPriceForCom,
+      minPriceForComDevidedBy1000,
       30
     )
     .call({ from: masterProxy });
