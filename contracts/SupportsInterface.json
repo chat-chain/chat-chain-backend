@@ -1620,7 +1620,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-25T08:57:09.598Z",
+  "updatedAt": "2022-05-25T09:17:52.770Z",
   "devdoc": {
     "details": "Implementation of standard for detect smart contract interfaces.",
     "kind": "dev",

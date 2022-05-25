@@ -3417,7 +3417,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-25T08:57:09.521Z",
+  "updatedAt": "2022-05-25T09:17:52.675Z",
   "devdoc": {
     "details": "The contract has an owner address, and provides basic authorization control whitch simplifies the implementation of user permissions. This contract is based on the source code at: https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol",
     "events": {
